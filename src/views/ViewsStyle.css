@@ -1,0 +1,147 @@
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+.Timers, .WorkoutList, .WorkoutTimerDisplay, .ViewTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF; /* white */
+}
+
+.SaveCancel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Timer {
+    border: 1px solid gray;
+    padding: 20px;
+    margin: 10px;
+    font-size: 1.5rem;
+    width: 50%;
+}
+
+.Item {
+    border: 1px solid #000000;
+    padding: 20px;
+    margin: 10px;
+    font-size: 1.5rem;
+    width: 50%;
+    min-width: 200px;
+}
+
+.timerListTitle {
+    margin-left: 10px;
+    padding-left: 20px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+/* 2 column set up */
+/* https://www.geeksforgeeks.org/how-to-define-two-column-layout-using-flexbox/#:~:text=Approach%3A%20To%20create%20a%20two,all%20will%20come%20as%20columns. */
+
+.WorkoutView {
+    display: flex;
+    flex-direction: row;
+}
+
+.Timers, .WorkoutTimerDisplay {
+    width: 50%;
+    height: 100vh;
+    color: #FFFFFF; /* white */
+}
+
+.ItemTitle {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 2px;
+    text-align: center;
+}
+
+.ItemsList {
+    width: 50%;
+    color: #FFFFFF; /* white */
+    height: 100vh;
+}
+
+/* BUTTONS */
+
+/* Remove workout timer */
+.removeButton {
+    background-color: grey;
+    border: solid 1px grey;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px; /* top/bottom left/right */
+    margin: 15px auto 0px auto; /* top right bottom left */
+    display:block;
+}
+
+.removeButton:hover {
+    background-color: lightpink;
+    border: solid 1px red;  
+    color: red;
+    cursor: pointer;
+}
+
+.removeButton:active {
+    background-color: lightpink;
+    border: solid 2px red;  
+    cursor: pointer;
+} 
+
+/* Clear Button not added at the moment
+.ClearButton {
+    background-color: red;
+    border: solid 2px red;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+}
+
+.ClearButton:hover {
+    background-color: lightgray;
+    border: solid 2px red;  
+    color: red;
+    cursor: pointer;
+}
+
+.ClearButton:active {
+    background-color: lightgray;
+    border: solid 3px red;  
+    cursor: pointer;
+} 
+
+*/
+
+/* Go to workout*/
+.WorkoutButton {
+    background-color: green;
+    border: solid 2px green;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+}
+
+.WorkoutButton:hover {
+    background-color: lightgray;
+    border: solid 2px green;  
+    color: green;
+    cursor: pointer;
+}
+
+.WorkoutButton:active {
+    background-color: lightgray;
+    border: solid 3px green;  
+    cursor: pointer;
+} 

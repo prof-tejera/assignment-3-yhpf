@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Panel from "../generic/Panel";
 import Input from "../generic/Input";
+import InputDesc from "../generic/InputDesc";
 import "../generic/TimersStyle.css";
 
 const XYAdd = ({onAdd}) => {
     const [timeLeft, setTimeLeft] = useState(0);
     const [roundsLeft, setRoundsLeft] = useState(0);
+    const [timerDesc, setTimerDesc] = useState(0);
 
     const addTimerType = () => {
         // update function is run every time the timer is updated
@@ -17,6 +19,7 @@ const XYAdd = ({onAdd}) => {
                 item.roundsLeft = item.roundsLeft - 1;
                 item.timeLeftInRound = item.originalTime;
             }
+            item.timerDesc = item.timerDesc
             return item;
         }
         // run when the timer is finished
@@ -39,7 +42,8 @@ const XYAdd = ({onAdd}) => {
             "totalTime": timeLeft*roundsLeft,
             "update": update,
             "finished": finished,
-            "reset": reset
+            "reset": reset, 
+            "timerDesc":timerDesc
         })
     }
 
@@ -62,6 +66,13 @@ const XYAdd = ({onAdd}) => {
                             setTimeLeft(newTime*1000) 
                         }}
                         placeholder="input in seconds"
+                    />
+                    <p className="input-text">Description:</p>
+                    <InputDesc 
+                        descChanged = {(newDesc) => { 
+                            setTimerDesc(newDesc) 
+                        }}
+                        placeholder="What to do" 
                     />
                 </div>
                 <button onClick={addTimerType} className="addButton">Add to Workout</button> 

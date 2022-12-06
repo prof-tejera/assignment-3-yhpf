@@ -5,6 +5,7 @@ import "./index.css";
 import DocumentationView from "./views/DocumentationView";
 import WorkoutView from "./views/WorkoutView";
 import AddView from "./views/AddView";
+import HistoryView from "./views/HistoryView";
 import { ContextProvider } from './Context';
 
 // note to oneself: this is where the bg color is changed, not in index.css
@@ -22,7 +23,10 @@ const Nav = () => {
           <Link to="/" className="menuLinks">Workout</Link>
         </li>
         <li>
-          <Link to="/add" className="menuLinks">Creat new workout</Link>
+          <Link to="/add" className="menuLinks">New workout</Link>
+        </li>
+        <li>
+          <Link to="/history" className="menuLinks">History</Link> 
         </li>
         <li>
           <Link to="/docs" className="menuLinks">Documentation</Link>
@@ -31,6 +35,8 @@ const Nav = () => {
     </nav>
   );
 };
+
+// Wrap app using react-error-boundary
 
 const App = () => {
   return (
@@ -42,6 +48,7 @@ const App = () => {
             <Route path="/docs" element={<DocumentationView />} />
             <Route path="/" element={<WorkoutView />} />
             <Route path="/add" element={<AddView />} />
+            <Route path="/history" element={<HistoryView />} />
           </Routes>
         </Router>
       </Container>

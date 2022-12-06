@@ -14,6 +14,10 @@ const CountdownView = ({item}) => {
                         showTimeUp={true}
                         isActive={item.state !== "not-running"}
                     />
+                    <p className="timer-text">Description</p>
+                    <div className="desc-text">
+                        {item.timerDesc}
+                    </div>
                 </div>
             </div>
         </Panel>
@@ -21,3 +25,4 @@ const CountdownView = ({item}) => {
 }
 
 export default CountdownView;
+

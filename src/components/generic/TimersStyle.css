@@ -62,6 +62,12 @@
     color: #FFFFFF; /* white */
 }
 
+.desc-text {
+    text-align: left;
+    font-size: 14px;
+    margin: 10px 20px 10px 20px; /* top right bottom left */
+}
+
 /* ===== BUTTON STYLING ===== */
 
 /* Start */

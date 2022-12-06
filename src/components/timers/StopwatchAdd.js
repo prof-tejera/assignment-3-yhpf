@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Panel from "../generic/Panel";
+import InputDesc from "../generic/InputDesc";
 import "../generic/TimersStyle.css";
 
 //https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
@@ -7,12 +8,15 @@ import "../generic/TimersStyle.css";
 const StopwatchAdd = ({onAdd}) => {
     // max time needed for total workout time etc.
     const MAX_TIME = 60*1000;
+    // timer description
+    const [timerDesc, setTimerDesc] = useState(0);
 
     const addTimerType = () => {
         // update: Updates the timer so that the values are accurate
         const update = (item, toDeduct) => {
             item.timeLeft -= toDeduct; // how much time it has left until the stopwatch is done
             item.currentTime += toDeduct; // what to show, as the stopwatch counts upward
+            item.timerDesc = item.timerDesc // // timer description
             return item;
         }
         // run when the timer is finished
@@ -22,7 +26,7 @@ const StopwatchAdd = ({onAdd}) => {
             item.currentTime = 0;
             return item;
         }
-        onAdd({ "timerType": "Stopwatch", "totalTime": MAX_TIME, "timeLeft": MAX_TIME, "currentTime": 0, "update": update, "finished": finished, "reset": reset })
+        onAdd({ "timerType": "Stopwatch", "totalTime": MAX_TIME, "timeLeft": MAX_TIME, "currentTime": 0, "update": update, "finished": finished, "reset": reset, "timerDesc":timerDesc })
     }
 
     // input time in seconds
@@ -30,7 +34,15 @@ const StopwatchAdd = ({onAdd}) => {
     return (
         <Panel>
             <div className="panel">
+                <p className="input-text">Description:</p>
+                <InputDesc 
+                    descChanged = {(newDesc) => { 
+                        setTimerDesc(newDesc) 
+                    }}
+                    placeholder="What to do" 
+                />
                 <button onClick={addTimerType} className="addButton">Add to Workout</button>
+                
             </div>
         </Panel>
     );

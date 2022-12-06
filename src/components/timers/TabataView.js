@@ -27,6 +27,10 @@ const TabataView = ({item}) => {
                         <p className="timer-text">Rest time</p>
                         <DisplayTime time={item.restLeftInRound} />
                     </div>
+                    <p className="timer-text">Description</p>
+                    <div className="desc-text">
+                        {item.timerDesc}
+                    </div>
                 </div>
             </div>
         </Panel>

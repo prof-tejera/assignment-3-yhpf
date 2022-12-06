@@ -13,6 +13,10 @@ const StopwatchView = ({item}) => {
             <div className="panel">
                 <div className="timerArea">
                     <DisplayTime time={item.currentTime} />
+                    <p className="timer-text">Description</p>
+                    <div className="desc-text">
+                        {item.timerDesc}
+                    </div>
                 </div>
             </div>
         </Panel>

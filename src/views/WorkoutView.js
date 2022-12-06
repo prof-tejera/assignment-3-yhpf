@@ -79,6 +79,13 @@ const WorkoutView = () => {
     );
   }
 
+  // add possibility to edit workout (button next to remove?) & also edit description
+  // add possibility to change order of the timers in the workout (3rd party package ok, or arrows)
+  // dont forget to update URL (persistant state saved in local storage)
+  // the total time timer should count down when workout is running.
+  // the description for each timer should be shown when timers is running
+
+
   return (
     <>
     <div className="ViewTitle">

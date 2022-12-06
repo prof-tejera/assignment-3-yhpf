@@ -23,6 +23,10 @@ const XYView = ({item}) => {
                         <p className="timer-text">Time</p>
                         <DisplayTime time={item.timeLeftInRound} />
                     </div>
+                    <p className="timer-text">Description</p>
+                    <div className="desc-text">
+                        {item.timerDesc}
+                    </div>
                 </div>
             </div>
         </Panel>

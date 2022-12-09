@@ -54,6 +54,15 @@ const TimerList = ({activeTimer, onTimerCompleted, showDelete, isPaused}) => {
         }
     }, [timerList, setTimerList, activeTimer, onTimerCompleted, isPaused]);
 
+    // https://stackoverflow.com/questions/71580951/react-how-to-swap-elements-in-to-do-list-by-their-priorities
+    const handleSwap = (timerList, item, delta) => {
+        const newCounts = [...timerList]
+        const first = newCounts.indexOf(item);
+        newCounts.splice(first, 1);
+        newCounts.splice(first + delta, 0, item);
+        setTimerList(newCounts)
+    }
+
     return (
         <div className="ItemsList ActiveItemsList">
             <h2 className="timerListTitle">List of Timers in Workout</h2>
@@ -69,7 +78,11 @@ const TimerList = ({activeTimer, onTimerCompleted, showDelete, isPaused}) => {
                         : item.timerType === "Tabata" ? 
                             <TabataView item={item} /> 
                         : "" }
-                    { showDelete ? <button  onClick={() => handleRemove(item.id)} className="removeButton">Remove</button> : <></> }
+                    <div className="container">
+                        { showDelete ? <button  onClick={() => handleRemove(item.id)} className="removeButton">Remove</button> : <></> }
+                        <button onClick={() => handleSwap(timerList, item, -1)} className="swapButton">&#9650;</button>
+                        <button onClick={() => handleSwap(timerList, item, 1)} className="swapButton">&#9660;</button>
+                    </div>
                 </div>
             ))}
         </div>

@@ -7,6 +7,8 @@ import WorkoutView from "./views/WorkoutView";
 import AddView from "./views/AddView";
 import HistoryView from "./views/HistoryView";
 import { ContextProvider } from './Context';
+import { ErrorBoundary } from 'react-error-boundary'
+import { PATHS } from "./constants";
 
 // note to oneself: this is where the bg color is changed, not in index.css
 const Container = styled.div`
@@ -15,28 +17,35 @@ const Container = styled.div`
   overflow: auto;
 `;
 
+// handle error
+const ErrorFallback = ({ error, resetErrorBoundary }) => (
+  <div role="alert">
+    <p>Something went wrong:</p>
+    <pre>{error.message}</pre>
+    <button onClick={resetErrorBoundary}>Try again</button>
+  </div>
+);
+
 const Nav = () => {
   return (
     <nav>
       <ul>
         <li>
-          <Link to="/" className="menuLinks">Workout</Link>
+          <Link to={PATHS.HOME} className="menuLinks">Workout</Link>
         </li>
         <li>
-          <Link to="/add" className="menuLinks">New workout</Link>
+          <Link to={PATHS.ADD} className="menuLinks">New workout</Link>
         </li>
         <li>
-          <Link to="/history" className="menuLinks">History</Link> 
+          <Link to={PATHS.HISTORY} className="menuLinks">History</Link> 
         </li>
         <li>
-          <Link to="/docs" className="menuLinks">Documentation</Link>
+          <Link to={PATHS.DOCS} className="menuLinks">Documentation</Link>
         </li>
       </ul>
     </nav>
   );
 };
-
-// Wrap app using react-error-boundary
 
 const App = () => {
   return (
@@ -45,15 +54,24 @@ const App = () => {
         <Router>
           <Nav />
           <Routes>
-            <Route path="/docs" element={<DocumentationView />} />
-            <Route path="/" element={<WorkoutView />} />
-            <Route path="/add" element={<AddView />} />
-            <Route path="/history" element={<HistoryView />} />
+            <Route path={PATHS.HOME} element={<WorkoutView />} />
+            <Route path={PATHS.ADD} element={<AddView />} />
+            <Route path={PATHS.HISTORY} element={<HistoryView />} />
+            <Route path={PATHS.DOCS} element={<DocumentationView />} />
           </Routes>
         </Router>
       </Container>
     </ContextProvider>
   );
 };
+
+// handle error
+const Wrapped = () => {
+  return <ErrorBoundary FallbackComponent={ErrorFallback} onError={(error, errorInfo) => {
+    // Handle error, maybe send it to a logging service
+  }}>
+    <App />
+  </ErrorBoundary>;
+}
 
 export default App;

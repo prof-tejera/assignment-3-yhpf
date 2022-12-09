@@ -68,10 +68,15 @@ h3 {
 
 /* BUTTONS */
 
+.container {
+    display: flex;
+    justify-content: center;
+}
+
 /* Remove workout timer */
 .removeButton {
-    background-color: grey;
-    border: solid 1px grey;
+    background-color: gray;
+    border: solid 1px gray;
     border-radius: 5px;
     color: white;
     font-size: 14px;
@@ -94,32 +99,30 @@ h3 {
     cursor: pointer;
 } 
 
-/* Clear Button not added at the moment
-.ClearButton {
-    background-color: red;
-    border: solid 2px red;
+/* Swap timerList item up or down */
+.swapButton {
+    background-color: gray;
+    border: solid 1px gray;
     border-radius: 5px;
     color: white;
     font-size: 14px;
     font-weight: bold;
-    padding: 10px;
-    margin: 5px;
+    padding: 5px 10px; /* top/bottom left/right */
+    margin: 15px auto 0px auto; /* top right bottom left */
 }
 
-.ClearButton:hover {
-    background-color: lightgray;
-    border: solid 2px red;  
-    color: red;
+.swapButton:hover {
+    background-color: #FFFFFF;
+    border: solid 1px gray;  
+    color: gray;
     cursor: pointer;
 }
 
-.ClearButton:active {
-    background-color: lightgray;
-    border: solid 3px red;  
+.swapButton:active {
+    background-color: #FFFFFF;
+    border: solid 2px gray;  
     cursor: pointer;
 } 
-
-*/
 
 /* Go to workout*/
 .WorkoutButton {
@@ -143,6 +146,31 @@ h3 {
 .WorkoutButton:active {
     background-color: lightgray;
     border: solid 3px green;  
+    cursor: pointer;
+} 
+
+/* Clear Button not working at the moment */
+.ClearButton {
+    background-color: red;
+    border: solid 2px red;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+}
+
+.ClearButton:hover {
+    background-color: lightgray;
+    border: solid 2px red;  
+    color: red;
+    cursor: pointer;
+}
+
+.ClearButton:active {
+    background-color: lightgray;
+    border: solid 3px red;  
     cursor: pointer;
 } 
 

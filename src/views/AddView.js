@@ -37,11 +37,6 @@ const AddView = () => {
         setUrlParams(searchParams.toString());
     }
 
-    // i need to add some kind of save button to be able to localy store
-    // workout using persistant state and URL
-
-    // add descriptoion field for each timer
-
     // i need to fix the clear button. for now remove timer by timer
     // <Link to="/add"><button className="ClearButton">Clear Workout</button></Link>
     return (
@@ -49,11 +44,16 @@ const AddView = () => {
         <div className="ViewTitle">
             <h1>Create new Workout</h1>
         </div>
-        <div className="SaveCancel">
-            <Link to={{ pathname: "/", search: urlParams }} ><button className="WorkoutButton">Go to Workout</button></Link>
-        </div>
-        <div className="SaveCancel">
-            <button className="WorkoutButton" onClick={saveStateToUrl}>Save</button>
+        <div className="container">
+            <div className="SaveCancel">
+                <Link to={{ pathname: "/", search: urlParams }} ><button className="WorkoutButton" >Go to Workout</button></Link>
+            </div>
+            <div className="SaveCancel">
+                <button className="WorkoutButton" onClick={saveStateToUrl}>Save</button>
+            </div>
+            <div className="SaveCancel">
+                <Link to="/add"><button className="ClearButton">Clear Workout</button></Link>
+            </div>
         </div>
         <div className="WorkoutView">
             <div className="Timers">

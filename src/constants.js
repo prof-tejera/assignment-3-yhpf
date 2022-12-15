@@ -1,7 +1,10 @@
+// https://muffinman.io/blog/react-router-subfolder-on-server/#using-react-router-s-basename
+const homePath = '/assignment-3-yhpf/';
+
 export const PATHS = {
-    HOME: "/",
-    ADD: "/add",
-    EDIT: "/edit",
-    HISTORY: "/history",
-    DOCS: "/docs",
+    HOME: homePath,
+    ADD: `${ homePath }add`,
+    EDIT: `${ homePath }edit`,
+    HISTORY: `${ homePath }history`,
+    DOCS: `${ homePath }docs`,
   };

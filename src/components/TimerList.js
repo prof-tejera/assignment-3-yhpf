@@ -81,7 +81,7 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
 
             return () => clearTimeout(timer);
         }
-    }, [timerList, activeTimer, onTimerCompleted, isPaused, numberOfPasses, referenceTime, setReferenceTime, setTimerList]);
+    }, [timerList, activeTimer, onTimerCompleted, isPaused, numberOfPasses, referenceTime, setReferenceTime, setTimerList, setElapsedTime]);
 
     // https://stackoverflow.com/questions/71580951/react-how-to-swap-elements-in-to-do-list-by-their-priorities
     const handleSwap = (timerList, item, delta) => {
@@ -110,7 +110,7 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
             }
             setElapsedTime(timeElapsed);    
         }
-    }, [timerList]);
+    }, [timerList, setElapsedTime]);
    
     return (
         <div className="ItemsList ActiveItemsList">

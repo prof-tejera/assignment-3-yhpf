@@ -57,7 +57,7 @@ const App = () => {
   return (
     <ContextProvider>
       <Container>
-        <Router>
+        <Router basename={PATHS.BASENAME}>
           <Nav />
           <Routes>
             <Route path={PATHS.HOME} element={<WorkoutView />} />

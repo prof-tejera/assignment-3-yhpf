@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CountdownView from "./timers/CountdownView";
 import StopwatchView from "./timers/StopwatchView";
 import XYView from "./timers/XYView";
@@ -13,21 +13,6 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
     const { timerList, setTimerList, setSearchParams, setCurrentWorkout, referenceTime, setReferenceTime } = useContext(Context);
 
 
-    // go through all the timers
-    const updateOnCountdown = useCallback(() => {
-        // no callback specified in this view so no need to do this.
-        if (!setElapsedTime) {
-            return
-        }
-        let timeElapsed = 0;
-        for (let i = 0; i <= timerList.length; i++) {
-            if (timerList[i]) {
-                timeElapsed += timerList[i].totalTime-timerList[i].timeLeft;
-            }
-        }
-        setElapsedTime(timeElapsed);
-    });
-
     //https://www.robinwieruch.de/react-remove-item-from-list/
     const handleRemove = (id) => {
         const newList = timerList.filter((item) => item.id !== id);
@@ -35,8 +20,6 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
     }
 
     const [numberOfPasses, setNumberOfPasses] = useState(0);
-    
-
 
     useEffect(() => {
 
@@ -61,7 +44,16 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
                     );
                     // to calculate how much time has passed, go through all the timers up
                     // to the current one and calculate totalTime - timeLeft
-                    updateOnCountdown();
+                    if (setElapsedTime) {
+                        let timeElapsed = 0;
+                        for (let i = 0; i <= timerList.length; i++) {
+                            if (timerList[i]) {
+                                timeElapsed += timerList[i].totalTime-timerList[i].timeLeft;
+                            }
+                        }
+                        setElapsedTime(timeElapsed);    
+                    }
+
                 } else {
                     // make sure we finish the current timer
                     setTimerList(
@@ -89,7 +81,7 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
 
             return () => clearTimeout(timer);
         }
-    }, [timerList, activeTimer, onTimerCompleted, isPaused, numberOfPasses, referenceTime, setReferenceTime, setTimerList, updateOnCountdown]);
+    }, [timerList, activeTimer, onTimerCompleted, isPaused, numberOfPasses, referenceTime, setReferenceTime, setTimerList]);
 
     // https://stackoverflow.com/questions/71580951/react-how-to-swap-elements-in-to-do-list-by-their-priorities
     const handleSwap = (timerList, item, delta) => {
@@ -107,8 +99,18 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
 
     // update the timer on timerlist change.
     useEffect(() => {
-        updateOnCountdown();
-    }, [timerList, updateOnCountdown]);
+        // dupliating this from above beause i can't get it to deploy
+        // when it's a function
+        if (setElapsedTime) {
+            let timeElapsed = 0;
+            for (let i = 0; i <= timerList.length; i++) {
+                if (timerList[i]) {
+                    timeElapsed += timerList[i].totalTime-timerList[i].timeLeft;
+                }
+            }
+            setElapsedTime(timeElapsed);    
+        }
+    }, [timerList]);
    
     return (
         <div className="ItemsList ActiveItemsList">

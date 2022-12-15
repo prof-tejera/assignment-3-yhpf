@@ -14,7 +14,7 @@
 }
 
 .Timer {
-    border: 1px solid gray;
+    border: 1px solid #808080; /* gray */
     padding: 20px;
     margin: 10px;
     font-size: 1.5rem;
@@ -22,7 +22,7 @@
 }
 
 .Item {
-    border: 1px solid #000000;
+    border: 1px solid #000000; /* black */
     padding: 20px;
     margin: 10px;
     font-size: 1.5rem;
@@ -54,8 +54,8 @@ h3 {
 }
 
 .ItemTitle {
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #FFFFFF; /* white */
+    color: #000000; /* black */
     padding: 2px;
     text-align: center;
 }
@@ -75,10 +75,10 @@ h3 {
 
 /* Remove workout timer */
 .removeButton {
-    background-color: gray;
-    border: solid 1px gray;
+    background-color: #808080; /* gray */
+    border: solid 1px #808080; /* gray */
     border-radius: 5px;
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 14px;
     font-weight: bold;
     padding: 5px 10px; /* top/bottom left/right */
@@ -87,24 +87,24 @@ h3 {
 }
 
 .removeButton:hover {
-    background-color: lightpink;
-    border: solid 1px red;  
-    color: red;
+    background-color: #FFB6C1; /* light pink */
+    border: solid 1px #FF0000; /* red */
+    color: #FF0000; /* red */
     cursor: pointer;
 }
 
 .removeButton:active {
-    background-color: lightpink;
-    border: solid 2px red;  
+    background-color: #FFB6C1; /* light pink */
+    border: solid 2px #FF0000; /* red */ 
     cursor: pointer;
 } 
 
 /* Swap timerList item up or down */
 .swapButton {
-    background-color: gray;
-    border: solid 1px gray;
+    background-color: #808080; /* gray */
+    border: solid 1px #808080; /* gray */
     border-radius: 5px;
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 14px;
     font-weight: bold;
     padding: 5px 10px; /* top/bottom left/right */
@@ -112,24 +112,24 @@ h3 {
 }
 
 .swapButton:hover {
-    background-color: #FFFFFF;
-    border: solid 1px gray;  
-    color: gray;
+    background-color: #FFFFFF; /* white */
+    border: solid 1px #808080; /* gray */ 
+    color: #808080; /* gray */ 
     cursor: pointer;
 }
 
 .swapButton:active {
-    background-color: #FFFFFF;
-    border: solid 2px gray;  
+    background-color: #FFFFFF; /* white */
+    border: solid 2px #808080; /* gray */  
     cursor: pointer;
 } 
 
 /* Go to workout*/
 .WorkoutButton {
-    background-color: green;
-    border: solid 2px green;
+    background-color: #008000; /* green */
+    border: solid 2px #008000; /* green */
     border-radius: 5px;
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 14px;
     font-weight: bold;
     padding: 10px;
@@ -137,24 +137,24 @@ h3 {
 }
 
 .WorkoutButton:hover {
-    background-color: lightgray;
-    border: solid 2px green;  
+    background-color: #D3D3D3; /* light gray */
+    border: solid 2px #008000; /* green */ 
     color: green;
     cursor: pointer;
 }
 
 .WorkoutButton:active {
-    background-color: lightgray;
-    border: solid 3px green;  
+    background-color: #D3D3D3; /* light gray */
+    border: solid 3px #008000; /* green */ 
     cursor: pointer;
 } 
 
 /* Clear Button not working at the moment */
 .ClearButton {
-    background-color: red;
-    border: solid 2px red;
+    background-color: #FF0000; /* red */ 
+    border: solid 2px #FF0000; /* red */ 
     border-radius: 5px;
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 14px;
     font-weight: bold;
     padding: 10px;
@@ -162,25 +162,25 @@ h3 {
 }
 
 .ClearButton:hover {
-    background-color: lightgray;
-    border: solid 2px red;  
-    color: red;
+    background-color: #D3D3D3; /* light gray */
+    border: solid 2px #FF0000; /* red */ 
+    color: #FF0000; /* red */ 
     cursor: pointer;
 }
 
 .ClearButton:active {
-    background-color: lightgray;
-    border: solid 3px red;  
+    background-color: #D3D3D3; /* light gray */
+    border: solid 3px #FF0000; /* red */   
     cursor: pointer;
 } 
 
-.testing {
-    color: #FFFFFF;
+.historyTitle, .historyParagraph {
+    color: #FFFFFF; /* white */
 }
 
 /* HISTORY */
 .historyArea {
-    background-color: gray;
+    background-color: #808080; /* gray */  
     padding: 10px 40px; /* top/bottom left/right */
     display: flex;
     list-style: none;
@@ -188,8 +188,20 @@ h3 {
 }
 
 .historyWorkout {
-    background: #FFFFFF; /* white */
     padding: 0px 20px; /* top/bottom left/right */
     overflow-y: auto; /* scrollbar if workout > height */
     height: 400px;
+    width: 240px;
+    border: solid 2px #FFFFFF; /* white */
+    color: #FFFFFF; /* white */
+}
+
+.historyWorkoutTitle {
+    background: #FFFFFF; /* white */
+    color: #808080; /* gray */  
+    text-align: center;
+    padding: 10px 20px; /* top/bottom left/right */
+    margin: 0px;
+    margin-left: -20px;
+    width: 240px;
 }

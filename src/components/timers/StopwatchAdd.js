@@ -4,9 +4,8 @@ import InputDesc from "../generic/InputDesc";
 import "../generic/TimersStyle.css";
 
 //https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
-
 const StopwatchAdd = ({onAdd}) => {
-    // max time needed for total workout time etc.
+    // max time needed for total workout time etc
     const MAX_TIME = 60*1000;
     // timer description
     const [timerDesc, setTimerDesc] = useState(0);

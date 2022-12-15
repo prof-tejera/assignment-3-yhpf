@@ -12,7 +12,7 @@ const History = () => {
         const totalWorkoutTime = workout.map((item) => item.totalTime).reduce((partialSum, a) => partialSum + a, 0);
         return (
             <li key={i} className="historyWorkout">
-                <h3>Workout {i+1}</h3>
+                <h3 className="historyWorkoutTitle">Workout {i+1}</h3>
                 <p>Number of timers: {timers.length}</p>
                 <p>Total workout time: {totalWorkoutTime/1000} sec</p>
                 {timers}
@@ -66,8 +66,8 @@ const History = () => {
     return (
         <>
             <div className="ViewTitle">
-                <h1 className="testing">Workout History</h1>
-                <p className="testing">If long workout you can scroll in box to see all info.</p> 
+                <h1 className="historyTitle">Workout History</h1>
+                <p className="historyParagraph">If long workout you can scroll in box to see all info.</p> 
                 <div className="SaveCancel">
                     <button className="ClearButton" onClick={ () => { clearHistory() } }>Clear History</button>
                 </div>

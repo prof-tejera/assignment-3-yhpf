@@ -4,7 +4,6 @@ import DisplayTime from "../generic/DisplayTime";
 import "../generic/TimersStyle.css";
 
 //https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
-
 const StopwatchView = ({item}) => {
     // input time in seconds
     // display time in minutes, seconds and tenth/hundreds

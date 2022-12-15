@@ -28,7 +28,7 @@ const AddView = () => {
     }, []);
 
     const addToList = (item) => {
-        // find the max id currently in the list, or 0 if list is empty.
+        // find the max id currently in the list, or 0 if list is empty
         const maxId = timerList.length ? Math.max(...timerList.map(item => item.id))+1 : 0;
         item.id = maxId;
         item.state = "not-running";
@@ -47,7 +47,7 @@ const AddView = () => {
         // todo: not copy and paste this to timerlist
         const wo = saveStateToUrl(timerList, setSearchParams);
         setCurrentWorkout(wo);
-        // clear any previously loaded state from here.
+        // clear any previously loaded state from here
         window.localStorage.removeItem('startState');
     }
 
@@ -58,8 +58,6 @@ const AddView = () => {
         window.localStorage.removeItem('startState');
     }
 
-    // i need to fix the clear button. for now remove timer by timer
-    // <Link to="/add"><button className="ClearButton">Clear Workout</button></Link>
     return (
         <>
         <div className="ViewTitle">

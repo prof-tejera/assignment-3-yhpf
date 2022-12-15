@@ -1,12 +1,12 @@
 .timerArea {
-    border: solid #FFFFFF 1px;
-    background-color: black;
-    color: white;
+    border: solid #FFFFFF 1px; /* white */
+    background-color: #000000; /* black */
+    color: #FFFFFF; /* white */
 }
 
 .totalTimerArea {
     padding: 60px 60px; /* top/bottom right/left */ 
-    border-color: #000000;
+    border-color: #000000; /* black */
     border-radius: 50%;
     box-shadow: 0 0 50px 15px #00FF00; /* https://unused-css.com/blog/css-outer-glow/ */
     margin-top: 50px;
@@ -33,7 +33,7 @@
     font-weight: bold;
     margin-bottom: 0px;
     padding-top: 0px;
-    color: white;
+    color: #FFFFFF; /* white */
     text-align: center;
 }
 
@@ -72,105 +72,105 @@
 
 /* Start */
 .start {
-    background-color: green;
-    border: solid 2px darkgreen; 
+    background-color: #008000; /* green */
+    border: solid 2px #006400; /* dark green */
     border-radius: 50%;
     height: 40px;
     width: 40px;
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 20px;
 }
 
 .start:hover {
-    background-color: darkgreen;
-    border: solid 2px white;  
+    background-color: #006400; /* dark green */
+    border: solid 2px #FFFFFF; /* white */  
     cursor: pointer;
 }
 
 .start:active {
-    background-color: grey;
-    border: solid 2px darkgreen; 
+    background-color: #808080; /* gray */
+    border: solid 2px #006400; /* dark green */
     cursor: pointer;
 }
 
 /* Pause/Resume */
 .pause-resume {
-    background-color: orange;
-    border: solid 2px darkorange;
+    background-color: #FFA500; /* orange */
+    border: solid 2px #FF8C00; /* dark orange */
     border-radius: 50%;
     height: 40px;
     width: 40px;
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 20px;
 }
 
 .pause-resume:hover {
-    background-color: darkorange;
-    border: solid 2px white;  
+    background-color: #FF8C00; /* dark orange */
+    border: solid 2px #FFFFFF; /* white */  
     cursor: pointer;
 }
 
 .pause-resume:active {
-    background-color: grey;
-    border: solid 2px darkorange;  
+    background-color: #808080; /* gray */
+    border: solid 2px #FF8C00; /* dark orange */
     cursor: pointer;
 }
 
 /* FastForward */
 .fastforward {
-    background-color: darkviolet;
-    border: solid 2px purple;
+    background-color: #9400D3; /* dark violet */
+    border: solid 2px #800080; /* purple */
     border-radius: 50%;
     height: 40px;
     width: 40px;
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 20px;
 }
 
 .fastforward:hover {
-    background-color: purple;
-    border: solid 2px white;  
+    background-color: #800080; /* purple */
+    border: solid 2px #FFFFFF; /* white */  
     cursor: pointer;
 }
 
 .fastforward:active {
-    background-color: grey;
-    border: solid 2px purple;  
+    background-color: #808080; /* gray */
+    border: solid 2px #800080; /* purple */  
     cursor: pointer;
 }
 
 /* Reset */
 .reset {
-    background-color: red;
-    border: solid 2px darkred;
+    background-color: #FF0000; /* red */
+    border: solid 2px #8B0000; /* dark red */
     border-radius: 50%;
     height: 40px;
     width: 40px;
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 20px;
     margin: 2px;
 }
 
 .reset:hover {
-    background-color: darkred;
-    border: solid 2px white;  
+    background-color: #8B0000; /* dark red */
+    border: solid 2px #FFFFFF; /* white */  
     margin: 2px;
     cursor: pointer;
 }
 
 .reset:active {
-    background-color: grey;
-    border: solid 2px darkred;  
+    background-color: #808080; /* gray */
+    border: solid 2px #8B0000; /* dark red */ 
     margin: 2px;
     cursor: pointer;
 }
 
 /* Add workout timer */
 .addButton {
-    background-color: grey;
-    border: solid 1px grey;
+    background-color: #808080; /* gray */
+    border: solid 1px #808080; /* gray */
     border-radius: 5px;
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 14px;
     font-weight: bold;
     padding: 5px 10px; /* top/bottom left/right */
@@ -179,23 +179,23 @@
 }
 
 .addButton:hover {
-    background-color: lightgreen;
-    border: solid 1px green;  
+    background-color: #90EE90; /* light green */
+    border: solid 1px #008000; /* green */
     color: green;
     cursor: pointer;
 }
 
 .addButton:active {
-    background-color: lightgreen;
-    border: solid 2px green;  
+    background-color: #90EE90; /* light green */
+    border: solid 2px #008000; /* green */
     cursor: pointer;
 } 
 
 /* Border around timers in timer list */
 .ActiveItemsList .state-running {
-    border: 4px solid red;
+    border: 4px solid #FF0000; /* red */
 }
 
 .ActiveItemsList .state-finished {
-    border: 4px solid green; 
+    border: 4px solid #008000; /* green */
 }

@@ -39,7 +39,7 @@ export const ContextProvider = ({ children }) => {
 	const [isActive, setIsActive] = useState(false);
 	const [searchParams, setSearchParams] = useState(new URLSearchParams(window.location.search).toString());
 
-	// to make sure we time acccurately.
+	// to make sure we time acccurately
 	const [referenceTime, setReferenceTime] = useState(Date.now());
 
 	const [timerList, setTimerList] = useState(getStateFromUrl('timers',[]));

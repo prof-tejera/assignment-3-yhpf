@@ -14,7 +14,7 @@ code {
 
 td,
 th {
-  border: 1px solid #dddddd;
+  border: 1px solid #DDDDDD; /* lighter gray */
   text-align: left;
   padding: 8px;
 }
@@ -23,7 +23,7 @@ th {
 .navbar {
   display: flex;
   list-style: none;
-  background-image: linear-gradient(to right, rgba(128,128,128,1), rgba(128,128,128,0));
+  background-image: linear-gradient(to right, rgba(128,128,128,1), rgba(128,128,128,0)); /* gradient gray to black */
 }
 
 li {
@@ -31,7 +31,7 @@ li {
 }
 
 .menuLinks {
-    color: white;
+    color: #FFFFFF; /* white */
     font-size: 14px;
     font-weight: bold;
     padding: 5px;
@@ -46,6 +46,6 @@ li {
 footer {
   text-align: center;
   padding: 2rem;
-  background-color: #000000;
-  color: white;
+  background-color: #000000; /* black */
+  color: #FFFFFF; /* white */
 }

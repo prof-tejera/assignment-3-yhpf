@@ -53,3 +53,12 @@ We will be grading based on the features listed above and overall code quality
 ## Bonus
 
 - Declare proptypes on all components you have created (5pt)
+
+## URL to Application
+
+https://prof-tejera.github.io/assignment-3-yhpf/
+
+#### Comments:
+- Default time for stopwatch is set to 60 seconds. 
+- I did not have time to fix all the minor comments from the feedback on A2. Focus was on making the accuracy better. The XY timer with 15 rounds a 5 sec that was off a lot before, is now much more accurate!
+- Last but not least. Thank you for a great class! React is very different and kind of hard. But I can also see why it is useful and popular. I really want to build my own blog now :)

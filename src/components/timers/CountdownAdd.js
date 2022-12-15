@@ -5,7 +5,6 @@ import InputDesc from "../generic/InputDesc";
 import "../generic/TimersStyle.css";
 
 // https://www.geeksforgeeks.org/create-a-stop-watch-using-reactjs/
-
 const Countdown = ({onAdd}) => {
     const [timeLeft, setTimeLeft] = useState(0);
     const [timerDesc, setTimerDesc] = useState(0);

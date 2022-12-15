@@ -97,7 +97,7 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
         window.localStorage.removeItem('startState');
     }
 
-    // update the timer on timerlist change.
+    // update the timer on timerlist change
     useEffect(() => {
         // dupliating this from above beause i can't get it to deploy
         // when it's a function

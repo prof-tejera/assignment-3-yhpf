@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import CountdownView from "./timers/CountdownView";
 import StopwatchView from "./timers/StopwatchView";
 import XYView from "./timers/XYView";
@@ -14,7 +14,7 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
 
 
     // go through all the timers
-    const updateOnCountdown = () => {
+    const updateOnCountdown = useCallback(() => {
         // no callback specified in this view so no need to do this.
         if (!setElapsedTime) {
             return
@@ -26,7 +26,7 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
             }
         }
         setElapsedTime(timeElapsed);
-    }
+    });
 
     //https://www.robinwieruch.de/react-remove-item-from-list/
     const handleRemove = (id) => {

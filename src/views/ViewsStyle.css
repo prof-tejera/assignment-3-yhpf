@@ -1,0 +1,207 @@
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+.Timers, .WorkoutList, .WorkoutTimerDisplay, .ViewTitle, .ViewParagraph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF; /* white */
+}
+
+.SaveCancel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Timer {
+    border: 1px solid #808080; /* gray */
+    padding: 20px;
+    margin: 10px;
+    font-size: 1.5rem;
+    width: 50%;
+}
+
+.Item {
+    border: 1px solid #000000; /* black */
+    padding: 20px;
+    margin: 10px;
+    font-size: 1.5rem;
+    width: 50%;
+    min-width: 200px;
+}
+
+.timerListTitle {
+    margin-left: 10px;
+    padding-left: 20px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+/* 2 column set up */
+/* https://www.geeksforgeeks.org/how-to-define-two-column-layout-using-flexbox/#:~:text=Approach%3A%20To%20create%20a%20two,all%20will%20come%20as%20columns. */
+
+.WorkoutView {
+    display: flex;
+    flex-direction: row;
+}
+
+.Timers, .WorkoutTimerDisplay {
+    width: 50%;
+    height: 100vh;
+    color: #FFFFFF; /* white */
+}
+
+.ItemTitle {
+    background-color: #FFFFFF; /* white */
+    color: #000000; /* black */
+    padding: 2px;
+    text-align: center;
+}
+
+.ItemsList {
+    width: 50%;
+    color: #FFFFFF; /* white */
+    height: 100vh;
+}
+
+/* BUTTONS */
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Remove workout timer */
+.removeButton {
+    background-color: #808080; /* gray */
+    border: solid 1px #808080; /* gray */
+    border-radius: 5px;
+    color: #FFFFFF; /* white */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px; /* top/bottom left/right */
+    margin: 15px auto 0px auto; /* top right bottom left */
+    display:block;
+}
+
+.removeButton:hover {
+    background-color: #FFB6C1; /* light pink */
+    border: solid 1px #FF0000; /* red */
+    color: #FF0000; /* red */
+    cursor: pointer;
+}
+
+.removeButton:active {
+    background-color: #FFB6C1; /* light pink */
+    border: solid 2px #FF0000; /* red */ 
+    cursor: pointer;
+} 
+
+/* Swap timerList item up or down */
+.swapButton {
+    background-color: #808080; /* gray */
+    border: solid 1px #808080; /* gray */
+    border-radius: 5px;
+    color: #FFFFFF; /* white */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px; /* top/bottom left/right */
+    margin: 15px auto 0px auto; /* top right bottom left */
+}
+
+.swapButton:hover {
+    background-color: #FFFFFF; /* white */
+    border: solid 1px #808080; /* gray */ 
+    color: #808080; /* gray */ 
+    cursor: pointer;
+}
+
+.swapButton:active {
+    background-color: #FFFFFF; /* white */
+    border: solid 2px #808080; /* gray */  
+    cursor: pointer;
+} 
+
+/* Go to workout*/
+.WorkoutButton {
+    background-color: #008000; /* green */
+    border: solid 2px #008000; /* green */
+    border-radius: 5px;
+    color: #FFFFFF; /* white */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+}
+
+.WorkoutButton:hover {
+    background-color: #D3D3D3; /* light gray */
+    border: solid 2px #008000; /* green */ 
+    color: green;
+    cursor: pointer;
+}
+
+.WorkoutButton:active {
+    background-color: #D3D3D3; /* light gray */
+    border: solid 3px #008000; /* green */ 
+    cursor: pointer;
+} 
+
+/* Clear Button not working at the moment */
+.ClearButton {
+    background-color: #FF0000; /* red */ 
+    border: solid 2px #FF0000; /* red */ 
+    border-radius: 5px;
+    color: #FFFFFF; /* white */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+}
+
+.ClearButton:hover {
+    background-color: #D3D3D3; /* light gray */
+    border: solid 2px #FF0000; /* red */ 
+    color: #FF0000; /* red */ 
+    cursor: pointer;
+}
+
+.ClearButton:active {
+    background-color: #D3D3D3; /* light gray */
+    border: solid 3px #FF0000; /* red */   
+    cursor: pointer;
+} 
+
+.historyTitle, .historyParagraph {
+    color: #FFFFFF; /* white */
+}
+
+/* HISTORY */
+.historyArea {
+    background-color: #808080; /* gray */  
+    padding: 10px 40px; /* top/bottom left/right */
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap; /* wrap to next line */
+}
+
+.historyWorkout {
+    padding: 0px 20px; /* top/bottom left/right */
+    overflow-y: auto; /* scrollbar if workout > height */
+    height: 400px;
+    width: 240px;
+    border: solid 2px #FFFFFF; /* white */
+    color: #FFFFFF; /* white */
+}
+
+.historyWorkoutTitle {
+    background: #FFFFFF; /* white */
+    color: #808080; /* gray */  
+    text-align: center;
+    padding: 10px 20px; /* top/bottom left/right */
+    margin: 0px;
+    margin-left: -20px;
+    width: 240px;
+}

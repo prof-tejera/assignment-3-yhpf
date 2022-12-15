@@ -1,0 +1,201 @@
+.timerArea {
+    border: solid #FFFFFF 1px; /* white */
+    background-color: #000000; /* black */
+    color: #FFFFFF; /* white */
+}
+
+.totalTimerArea {
+    padding: 60px 60px; /* top/bottom right/left */ 
+    border-color: #000000; /* black */
+    border-radius: 50%;
+    box-shadow: 0 0 50px 15px #00FF00; /* https://unused-css.com/blog/css-outer-glow/ */
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+}
+
+.input-text {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0px;
+}
+
+.p-text {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0px;
+    
+}
+
+.timer-text {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    color: #FFFFFF; /* white */
+    text-align: center;
+}
+
+.timerDisplay, .roundsDisplay, .restDisplay, .buttonPanel {
+    text-align: center;
+}
+
+.timerDisplay, .roundsDisplay, .restDisplay {
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttonPanel {
+    padding-bottom: 0px;
+}
+
+.timerDisplay {
+    font-size: 35px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #FFFFFF; /* white */
+}
+
+.roundsDisplay {
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #FFFFFF; /* white */
+}
+
+.desc-text {
+    text-align: left;
+    font-size: 14px;
+    margin: 10px 20px 10px 20px; /* top right bottom left */
+}
+
+/* ===== BUTTON STYLING ===== */
+
+/* Start */
+.start {
+    background-color: #008000; /* green */
+    border: solid 2px #006400; /* dark green */
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: #FFFFFF; /* white */
+    font-size: 20px;
+}
+
+.start:hover {
+    background-color: #006400; /* dark green */
+    border: solid 2px #FFFFFF; /* white */  
+    cursor: pointer;
+}
+
+.start:active {
+    background-color: #808080; /* gray */
+    border: solid 2px #006400; /* dark green */
+    cursor: pointer;
+}
+
+/* Pause/Resume */
+.pause-resume {
+    background-color: #FFA500; /* orange */
+    border: solid 2px #FF8C00; /* dark orange */
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: #FFFFFF; /* white */
+    font-size: 20px;
+}
+
+.pause-resume:hover {
+    background-color: #FF8C00; /* dark orange */
+    border: solid 2px #FFFFFF; /* white */  
+    cursor: pointer;
+}
+
+.pause-resume:active {
+    background-color: #808080; /* gray */
+    border: solid 2px #FF8C00; /* dark orange */
+    cursor: pointer;
+}
+
+/* FastForward */
+.fastforward {
+    background-color: #9400D3; /* dark violet */
+    border: solid 2px #800080; /* purple */
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: #FFFFFF; /* white */
+    font-size: 20px;
+}
+
+.fastforward:hover {
+    background-color: #800080; /* purple */
+    border: solid 2px #FFFFFF; /* white */  
+    cursor: pointer;
+}
+
+.fastforward:active {
+    background-color: #808080; /* gray */
+    border: solid 2px #800080; /* purple */  
+    cursor: pointer;
+}
+
+/* Reset */
+.reset {
+    background-color: #FF0000; /* red */
+    border: solid 2px #8B0000; /* dark red */
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: #FFFFFF; /* white */
+    font-size: 20px;
+    margin: 2px;
+}
+
+.reset:hover {
+    background-color: #8B0000; /* dark red */
+    border: solid 2px #FFFFFF; /* white */  
+    margin: 2px;
+    cursor: pointer;
+}
+
+.reset:active {
+    background-color: #808080; /* gray */
+    border: solid 2px #8B0000; /* dark red */ 
+    margin: 2px;
+    cursor: pointer;
+}
+
+/* Add workout timer */
+.addButton {
+    background-color: #808080; /* gray */
+    border: solid 1px #808080; /* gray */
+    border-radius: 5px;
+    color: #FFFFFF; /* white */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px; /* top/bottom left/right */
+    margin-top: 15px;
+    float:right
+}
+
+.addButton:hover {
+    background-color: #90EE90; /* light green */
+    border: solid 1px #008000; /* green */
+    color: green;
+    cursor: pointer;
+}
+
+.addButton:active {
+    background-color: #90EE90; /* light green */
+    border: solid 2px #008000; /* green */
+    cursor: pointer;
+} 
+
+/* Border around timers in timer list */
+.ActiveItemsList .state-running {
+    border: 4px solid #FF0000; /* red */
+}
+
+.ActiveItemsList .state-finished {
+    border: 4px solid #008000; /* green */
+}

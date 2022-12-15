@@ -18,6 +18,7 @@ const Input = ({timeChanged, placeholder}) => {
                 <label>
                     <input 
                         type="number" 
+                        min="0"
                         value={inputTime} 
                         onChange={onChange}
                         placeholder={placeholder}

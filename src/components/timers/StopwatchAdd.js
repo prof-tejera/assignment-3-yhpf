@@ -26,7 +26,7 @@ const StopwatchAdd = ({onAdd}) => {
             item.currentTime = 0;
             return item;
         }
-        onAdd({ "timerType": "Stopwatch", "totalTime": MAX_TIME, "timeLeft": MAX_TIME, "currentTime": 0, "update": update, "finished": finished, "reset": reset, "timerDesc":timerDesc })
+        onAdd({ "timerType": "Stopwatch", "totalTime": MAX_TIME, "timeLeft": MAX_TIME, "currentTime": 0, "timerDesc":timerDesc })
     }
 
     // input time in seconds

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import "./index.css";
@@ -6,7 +6,7 @@ import DocumentationView from "./views/DocumentationView";
 import WorkoutView from "./views/WorkoutView";
 import AddView from "./views/AddView";
 import HistoryView from "./views/HistoryView";
-import { ContextProvider } from './Context';
+import { ContextProvider, Context } from './Context';
 import { ErrorBoundary } from 'react-error-boundary'
 import { PATHS } from "./constants";
 
@@ -27,17 +27,23 @@ const ErrorFallback = ({ error, resetErrorBoundary }) => (
 );
 
 const Nav = () => {
+  const { searchParams, setSearchParams, setTimerList, setCurrentWorkout } = useContext(Context);
+  // made it so the new click empties the list. 
+  // ugly copy and paste to keep state clear.
   return (
     <nav>
-      <ul>
+      <ul className="navbar">
         <li>
-          <Link to={PATHS.HOME} className="menuLinks">Workout</Link>
+          <Link to={{ pathname: PATHS.HOME, search: searchParams }} className="menuLinks">Workout</Link>
         </li>
         <li>
-          <Link to={PATHS.ADD} className="menuLinks">New workout</Link>
+          <Link to={{ pathname: PATHS.ADD }} onClick={ () => {setTimerList([]); setSearchParams(""); setCurrentWorkout(''); window.localStorage.removeItem('startState'); } } className="menuLinks">New workout</Link>
         </li>
         <li>
-          <Link to={PATHS.HISTORY} className="menuLinks">History</Link> 
+          <Link to={{ pathname: PATHS.ADD, search: searchParams }}  className="menuLinks">Edit workout</Link>
+        </li>
+        <li>
+          <Link to={{ pathname: PATHS.HISTORY, search: searchParams }}  className="menuLinks">History</Link> 
         </li>
         <li>
           <Link to={PATHS.DOCS} className="menuLinks">Documentation</Link>

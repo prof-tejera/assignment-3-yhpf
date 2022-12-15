@@ -1,14 +1,32 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CountdownView from "./timers/CountdownView";
 import StopwatchView from "./timers/StopwatchView";
 import XYView from "./timers/XYView";
 import TabataView from "./timers/TabataView";
 import { Context } from "../Context";
+import { saveStateToUrl } from "../utils/helpers";
 import "../views/ViewsStyle.css";
+import TimerActions from "./timers/TimerActions";
 
 // TimerList is the list of timers
-const TimerList = ({activeTimer, onTimerCompleted, showDelete, isPaused}) => {
-    const { timerList, setTimerList } = useContext(Context);
+const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, isPaused}) => {
+    const { timerList, setTimerList, setSearchParams, setCurrentWorkout, referenceTime, setReferenceTime } = useContext(Context);
+
+
+    // go through all the timers
+    const updateOnCountdown = () => {
+        // no callback specified in this view so no need to do this.
+        if (!setElapsedTime) {
+            return
+        }
+        let timeElapsed = 0;
+        for (let i = 0; i <= timerList.length; i++) {
+            if (timerList[i]) {
+                timeElapsed += timerList[i].totalTime-timerList[i].timeLeft;
+            }
+        }
+        setElapsedTime(timeElapsed);
+    }
 
     //https://www.robinwieruch.de/react-remove-item-from-list/
     const handleRemove = (id) => {
@@ -16,9 +34,18 @@ const TimerList = ({activeTimer, onTimerCompleted, showDelete, isPaused}) => {
         setTimerList(newList);
     }
 
+    const [numberOfPasses, setNumberOfPasses] = useState(0);
+    
+
+
     useEffect(() => {
+
         if (activeTimer >= 0) {
+            // https://medium.com/@bsalwiczek/building-timer-in-react-its-not-as-simple-as-you-may-think-80e5f2648f9b
             const timer = setInterval(() => {
+                const now = Date.now();
+                const interval = now - referenceTime;
+                setReferenceTime(now);
                 if (isPaused) { return }
                 // find the timer in the list
                 const currentTimer = timerList.find(item => item.id === activeTimer);
@@ -26,18 +53,21 @@ const TimerList = ({activeTimer, onTimerCompleted, showDelete, isPaused}) => {
                     setTimerList(
                         timerList.map(item => {
                             if (item.id === activeTimer) {
-                                return item.update(item, 10);
+                                return TimerActions[item.timerType].update(item, interval);
                             } else {
                                 return item;
                             }
                         })
                     );
+                    // to calculate how much time has passed, go through all the timers up
+                    // to the current one and calculate totalTime - timeLeft
+                    updateOnCountdown();
                 } else {
                     // make sure we finish the current timer
                     setTimerList(
                         timerList.map(item => {
                             if (item.id === activeTimer) {
-                                item = item.finished(item);
+                                item = TimerActions[item.timerType].finished(item);
                                 item.state = "finished";
                                 return item;
                             } else {
@@ -48,11 +78,18 @@ const TimerList = ({activeTimer, onTimerCompleted, showDelete, isPaused}) => {
                     onTimerCompleted(activeTimer);
                     clearTimeout(timer);
                 }
-            }, 10);
+                // here we save the state and the index to local storage so that we can load this back
+                // when we reload the page
+                if (numberOfPasses % 20 == 0) { // should happen every two seconds given we run timer every 50ms
+                    window.localStorage.setItem('startState', JSON.stringify(timerList));
+                }
+                setNumberOfPasses(numberOfPasses+1);
+
+            }, 50);
 
             return () => clearTimeout(timer);
         }
-    }, [timerList, setTimerList, activeTimer, onTimerCompleted, isPaused]);
+    }, [timerList, activeTimer, onTimerCompleted, isPaused]);
 
     // https://stackoverflow.com/questions/71580951/react-how-to-swap-elements-in-to-do-list-by-their-priorities
     const handleSwap = (timerList, item, delta) => {
@@ -61,8 +98,18 @@ const TimerList = ({activeTimer, onTimerCompleted, showDelete, isPaused}) => {
         newCounts.splice(first, 1);
         newCounts.splice(first + delta, 0, item);
         setTimerList(newCounts)
+
+        // todo: not copy and paste this to addview
+        const wo = saveStateToUrl(newCounts, setSearchParams);
+        setCurrentWorkout(wo);
+        window.localStorage.removeItem('startState');
     }
 
+    // update the timer on timerlist change.
+    useEffect(() => {
+        updateOnCountdown();
+    }, [timerList]);
+   
     return (
         <div className="ItemsList ActiveItemsList">
             <h2 className="timerListTitle">List of Timers in Workout</h2>
@@ -80,8 +127,8 @@ const TimerList = ({activeTimer, onTimerCompleted, showDelete, isPaused}) => {
                         : "" }
                     <div className="container">
                         { showDelete ? <button  onClick={() => handleRemove(item.id)} className="removeButton">Remove</button> : <></> }
-                        <button onClick={() => handleSwap(timerList, item, -1)} className="swapButton">&#9650;</button>
-                        <button onClick={() => handleSwap(timerList, item, 1)} className="swapButton">&#9660;</button>
+                        { showDelete ? <button onClick={() => handleSwap(timerList, item, -1)} className="swapButton">&#9650;</button> : <></> }
+                        { showDelete ? <button onClick={() => handleSwap(timerList, item, 1)} className="swapButton">&#9660;</button> : <></> }
                     </div>
                 </div>
             ))}

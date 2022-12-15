@@ -20,7 +20,7 @@ th {
 }
 
 
-ul {
+.navbar {
   display: flex;
   list-style: none;
   background-image: linear-gradient(to right, rgba(128,128,128,1), rgba(128,128,128,0));

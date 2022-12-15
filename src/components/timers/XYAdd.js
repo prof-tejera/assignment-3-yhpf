@@ -40,9 +40,6 @@ const XYAdd = ({onAdd}) => {
             "originalRounds": roundsLeft, 
             "roundsLeft": roundsLeft, 
             "totalTime": timeLeft*roundsLeft,
-            "update": update,
-            "finished": finished,
-            "reset": reset, 
             "timerDesc":timerDesc
         })
     }

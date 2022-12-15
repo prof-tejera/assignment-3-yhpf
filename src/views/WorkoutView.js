@@ -2,15 +2,19 @@ import React, { useContext, useState } from "react";
 import "./ViewsStyle.css";
 import WorkoutButtons from "../components/WorkoutButtons";
 import TimerList from "../components/TimerList";
+import TimerActions from "../components/timers/TimerActions";
 import { Context } from "../Context";
+import { loadFromLocalStorage } from "../utils/helpers";
 
 const WorkoutView = () => {
-  const { timerList, setTimerList } = useContext(Context);
+  const { timerList, setTimerList, setWorkoutHistory, setReferenceTime } = useContext(Context);
   const [ activeTimer, setActiveTimer ] = useState(-1);
   const [ isPaused, setIsPaused ] = useState(false);
+  const [ elapsedTime, setElapsedTime ] = useState(0);
 
   const onStart = () => {
     if (timerList.length > 0) {
+      setReferenceTime(Date.now());
       setActiveTimer(timerList[0].id);
       startTimer(timerList[0].id);
     }
@@ -27,12 +31,13 @@ const WorkoutView = () => {
   const onReset = () => {
     setActiveTimer(-1);
     setIsPaused(false);
+    setElapsedTime(0);
     setTimerList(
       timerList.map(item => {
         // reset the item to original state, like in AddView
         item.state = "not-running";
         item.timeLeft = item.totalTime;
-        return item.reset(item);
+        return TimerActions[item.timerType].reset(item);
       })
     );
   }
@@ -52,7 +57,15 @@ const WorkoutView = () => {
       // we are at the tend of the list of timers
       setActiveTimer(-1);
       stopTimers();
+      saveStateToHistory();
     }
+  }
+
+  const saveStateToHistory = () => {
+    let history = loadFromLocalStorage('workoutHistory', []);
+    history.push(timerList);
+    window.localStorage.setItem('workoutHistory',JSON.stringify(history));
+    setWorkoutHistory(history);
   }
 
   const startTimer = (timer) => {
@@ -94,9 +107,9 @@ const WorkoutView = () => {
     <div className="WorkoutView">
       <div className="WorkoutTimerDisplay">
         <h2>Total Workout Time</h2>
-        <WorkoutButtons onClickRun={ onStart } onClickPause={ onPauseResume } onFastForward={ onFastForward } onReset={ onReset } />
+        <WorkoutButtons onClickRun={ onStart } onClickPause={ onPauseResume } onFastForward={ onFastForward } onReset={ onReset } elapsedTime={ elapsedTime } />
       </div>
-      <TimerList activeTimer={activeTimer} onTimerCompleted={ nextTimer } showDelete={activeTimer<0} isPaused={isPaused} />
+      <TimerList activeTimer={activeTimer} onTimerCompleted={ nextTimer } setElapsedTime={ setElapsedTime } showDelete={activeTimer<0} isPaused={isPaused} />
     </div>
     </>
   );

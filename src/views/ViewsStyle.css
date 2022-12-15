@@ -1,6 +1,6 @@
 /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 
-.Timers, .WorkoutList, .WorkoutTimerDisplay, .ViewTitle {
+.Timers, .WorkoutList, .WorkoutTimerDisplay, .ViewTitle, .ViewParagraph {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,4 +176,20 @@ h3 {
 
 .testing {
     color: #FFFFFF;
+}
+
+/* HISTORY */
+.historyArea {
+    background-color: gray;
+    padding: 10px 40px; /* top/bottom left/right */
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap; /* wrap to next line */
+}
+
+.historyWorkout {
+    background: #FFFFFF; /* white */
+    padding: 0px 20px; /* top/bottom left/right */
+    overflow-y: auto; /* scrollbar if workout > height */
+    height: 400px;
 }

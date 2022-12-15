@@ -21,7 +21,7 @@ const Countdown = ({onAdd}) => {
         // run when the user clicks reset button
         const reset = (item) => item;
 
-        onAdd({ "timerType": "Countdown", "timerTime": timeLeft, "totalTime": timeLeft, "update": update, "finished": finished, "reset": reset, "timerDesc":timerDesc })
+        onAdd({ "timerType": "Countdown", "timerTime": timeLeft, "totalTime": timeLeft, "timerDesc":timerDesc })
     }
 
     // input time in seconds

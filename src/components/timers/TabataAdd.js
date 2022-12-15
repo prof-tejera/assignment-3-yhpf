@@ -50,12 +50,11 @@ const TabataAdd = ({onAdd, startTime=0, startRounds=0, startRest=0, showAddButto
                 "restLeftInRound": restLeft,
 
                 "totalTime": (timeLeft+restLeft)*roundsLeft,
-                "update": update, "finished": finished, "reset": reset,
                 
                 "timerDesc":timerDesc }
             )
     }
-
+    
     // input time in seconds
     // display time in minutes, seconds and tenth/hundreds
     return (

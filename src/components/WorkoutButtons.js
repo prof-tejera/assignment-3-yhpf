@@ -6,7 +6,7 @@ import ButtonPanel from "./generic/ButtonPanel";
 import "./generic/TimersStyle.css";
 import { Context } from "../Context";
 
-const WorkoutButtons = ({onClickRun, onClickPause, onFastForward, onReset}) => {
+const WorkoutButtons = ({onClickRun, onClickPause, onFastForward, onReset, elapsedTime}) => {
     const [isActive, setIsActive] = useState(false);
     const [isPaused, setIsPaused] = useState(true);
     const { timerList } = useContext(Context);
@@ -56,12 +56,12 @@ const WorkoutButtons = ({onClickRun, onClickPause, onFastForward, onReset}) => {
             <div className="panel">
                 <div className="timerArea totalTimerArea">
                     <div className="roundsDisplay">
-                        <DisplayTime time={totalLength} />
+                        <DisplayTime time={Math.ceil(totalLength-elapsedTime)} />
                         <br />
                         <div className="buttonPanel">
                             {timerList.length > 0 ? 
                             <>
-                                {isActive ? 
+                                {isActive || Math.ceil(totalLength-elapsedTime) == 0 ? 
                                 <ButtonPanel handleFastForward={handleFastForward} handlePauseResume={handlePauseResume} handleReset={handleReset} isPaused={isPaused} /> 
                                 : 
                                 StartButton}

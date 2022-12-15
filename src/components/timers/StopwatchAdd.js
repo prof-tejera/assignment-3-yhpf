@@ -12,20 +12,6 @@ const StopwatchAdd = ({onAdd}) => {
     const [timerDesc, setTimerDesc] = useState(0);
 
     const addTimerType = () => {
-        // update: Updates the timer so that the values are accurate
-        const update = (item, toDeduct) => {
-            item.timeLeft -= toDeduct; // how much time it has left until the stopwatch is done
-            item.currentTime += toDeduct; // what to show, as the stopwatch counts upward
-            item.timerDesc = item.timerDesc // // timer description
-            return item;
-        }
-        // run when the timer is finished
-        const finished = (item) => item;
-        // run when the user clicks reset button
-        const reset = (item) => {
-            item.currentTime = 0;
-            return item;
-        }
         onAdd({ "timerType": "Stopwatch", "totalTime": MAX_TIME, "timeLeft": MAX_TIME, "currentTime": 0, "timerDesc":timerDesc })
     }
 

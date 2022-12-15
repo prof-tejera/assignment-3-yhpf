@@ -1,4 +1,4 @@
-export default { 
+const TimerActions = { 
     'Tabata': {
         update: (item, toDeduct) => {
             // always make sure we dont remove so we get less than 0 left
@@ -12,7 +12,6 @@ export default {
             } else {
                 item.timeLeftInRound = Math.max(item.timeLeftInRound - toDeduct, 0);
             }
-            item.timerDesc = item.timerDesc
             return item;
         },
         // run when the timer is finished
@@ -38,7 +37,6 @@ export default {
                 item.roundsLeft = item.roundsLeft - 1;
                 item.timeLeftInRound = item.originalTime;
             }
-            item.timerDesc = item.timerDesc
             return item;
         },
         // run when the timer is finished
@@ -57,7 +55,6 @@ export default {
     'Countdown': {
         update: (item, toDeduct) => {
             item.timeLeft = Math.max(item.timeLeft - toDeduct, 0);
-            item.timerDesc = item.timerDesc
             return item;
         },
         // run when the timer is finished
@@ -66,11 +63,9 @@ export default {
         reset: (item) => item
     },
     'Stopwatch': {
-
         update: (item, toDeduct) => {
             item.timeLeft -= toDeduct; // how much time it has left until the stopwatch is done
             item.currentTime += toDeduct; // what to show, as the stopwatch counts upward
-            item.timerDesc = item.timerDesc // // timer description
             return item;
         },
         // run when the timer is finished
@@ -82,3 +77,5 @@ export default {
         }
 
 } }
+
+export default TimerActions;

@@ -11,34 +11,6 @@ const TabataAdd = ({onAdd, startTime=0, startRounds=0, startRest=0, showAddButto
     const [timerDesc, setTimerDesc] = useState(0);
 
     const addTimerType = () => {
-        const update = (item, toDeduct) => {
-            item.timeLeft = item.timeLeft - toDeduct;
-            if (item.timeLeftInRound === 0 && item.restLeftInRound === 0) {
-                item.roundsLeft = item.roundsLeft - 1;
-                item.timeLeftInRound = item.originalTime;
-                item.restLeftInRound = item.originalRest;
-            } else if (item.timeLeftInRound === 0) {
-                item.restLeftInRound = item.restLeftInRound - toDeduct;
-            } else {
-                item.timeLeftInRound = item.timeLeftInRound - toDeduct;
-            }
-            item.timerDesc = item.timerDesc
-            return item;
-        }
-        // run when the timer is finished
-        const finished = (item) => {
-            item.timeLeftInRound = 0;
-            item.restLeftInRound = 0;
-            item.roundsLeft = 0;
-            return item;
-        }
-        // run when the user clicks reset button
-        const reset = (item) => {
-            item.timeLeftInRound = item.originalTime;
-            item.restLeftInRound = item.originalRest;
-            item.roundsLeft = item.originalRounds;
-            return item;
-        }
         onAdd({ "timerType": "Tabata", 
                 "originalTime": timeLeft,
                 "timeLeftInRound": timeLeft,

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./ViewsStyle.css";
 import StopwatchAdd from "../components/timers/StopwatchAdd";
@@ -23,6 +23,8 @@ const AddView = () => {
                 return item;
             })
         );
+    // https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const addToList = (item) => {

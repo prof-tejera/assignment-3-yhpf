@@ -64,7 +64,7 @@ export const ContextProvider = ({ children }) => {
 		const urlWorkout = new URLSearchParams(window.location.search).toString();
 		// if the workout we've saved is the same as the one in the URL,
 		// then load the different values
-		if (storedWorkout == urlWorkout) {
+		if (storedWorkout === urlWorkout) {
 			const potentialTimerList = loadFromLocalStorage('startState', []);
 			if (potentialTimerList.length > 0) {
 				setTimerList(potentialTimerList);

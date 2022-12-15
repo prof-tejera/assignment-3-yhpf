@@ -61,7 +61,7 @@ const WorkoutButtons = ({onClickRun, onClickPause, onFastForward, onReset, elaps
                         <div className="buttonPanel">
                             {timerList.length > 0 ? 
                             <>
-                                {isActive || Math.ceil(totalLength-elapsedTime) == 0 ? 
+                                {isActive || Math.ceil(totalLength-elapsedTime) === 0 ? 
                                 <ButtonPanel handleFastForward={handleFastForward} handlePauseResume={handlePauseResume} handleReset={handleReset} isPaused={isPaused} /> 
                                 : 
                                 StartButton}

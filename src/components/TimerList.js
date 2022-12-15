@@ -80,7 +80,7 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
                 }
                 // here we save the state and the index to local storage so that we can load this back
                 // when we reload the page
-                if (numberOfPasses % 20 == 0) { // should happen every two seconds given we run timer every 50ms
+                if (numberOfPasses % 20 === 0) { // should happen every two seconds given we run timer every 50ms
                     window.localStorage.setItem('startState', JSON.stringify(timerList));
                 }
                 setNumberOfPasses(numberOfPasses+1);
@@ -89,7 +89,7 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
 
             return () => clearTimeout(timer);
         }
-    }, [timerList, activeTimer, onTimerCompleted, isPaused]);
+    }, [timerList, activeTimer, onTimerCompleted, isPaused, numberOfPasses, referenceTime, setReferenceTime, setTimerList, updateOnCountdown]);
 
     // https://stackoverflow.com/questions/71580951/react-how-to-swap-elements-in-to-do-list-by-their-priorities
     const handleSwap = (timerList, item, delta) => {
@@ -108,7 +108,7 @@ const TimerList = ({activeTimer, onTimerCompleted, setElapsedTime, showDelete, i
     // update the timer on timerlist change.
     useEffect(() => {
         updateOnCountdown();
-    }, [timerList]);
+    }, [timerList, updateOnCountdown]);
    
     return (
         <div className="ItemsList ActiveItemsList">

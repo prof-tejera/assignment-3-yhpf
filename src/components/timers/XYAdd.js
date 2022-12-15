@@ -10,30 +10,6 @@ const XYAdd = ({onAdd}) => {
     const [timerDesc, setTimerDesc] = useState(0);
 
     const addTimerType = () => {
-        // update function is run every time the timer is updated
-        // keeps track of the rounds left and the time left in each round
-        const update = (item, toDeduct) => {
-            item.timeLeft = item.timeLeft - toDeduct;
-            item.timeLeftInRound = item.timeLeftInRound - toDeduct;
-            if (item.timeLeftInRound === 0) {
-                item.roundsLeft = item.roundsLeft - 1;
-                item.timeLeftInRound = item.originalTime;
-            }
-            item.timerDesc = item.timerDesc
-            return item;
-        }
-        // run when the timer is finished
-        const finished = (item) => {
-            item.timeLeftInRound = 0;
-            item.roundsLeft = 0;
-            return item;
-        }
-        // run when the user clicks reset button
-        const reset = (item) => {
-            item.timeLeftInRound = item.originalTime;
-            item.roundsLeft = item.originalRounds;
-            return item;
-        }
         onAdd({ "timerType": "XY", 
             "originalTime": timeLeft, 
             "timeLeftInRound": timeLeft,

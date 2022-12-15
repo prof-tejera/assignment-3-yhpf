@@ -11,16 +11,6 @@ const Countdown = ({onAdd}) => {
     const [timerDesc, setTimerDesc] = useState(0);
 
     const addTimerType = () => {
-        const update = (item, toDeduct) => {
-            item.timeLeft = item.timeLeft - toDeduct;
-            item.timerDesc = item.timerDesc
-            return item;
-        }
-        // run when the timer is finished
-        const finished = (item) => item;
-        // run when the user clicks reset button
-        const reset = (item) => item;
-
         onAdd({ "timerType": "Countdown", "timerTime": timeLeft, "totalTime": timeLeft, "timerDesc":timerDesc })
     }
 

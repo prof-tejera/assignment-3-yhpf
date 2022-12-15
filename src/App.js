@@ -80,4 +80,4 @@ const Wrapped = () => {
   </ErrorBoundary>;
 }
 
-export default App;
+export default Wrapped;
